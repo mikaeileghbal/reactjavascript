@@ -1,0 +1,15 @@
+.recipes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+}
+
+.recipes > section {
+  padding: 1em;
+  background-color: aliceblue;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=main.css.map */
