@@ -1,0 +1,1968 @@
+transition: color 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, border 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+
+
+transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+transform-origin: left top;
+
+
+expression: An expression is a phrase of JavaScript that can be evaluated to produce a value.
+
+function: A function is a named and parameterized block of JavaScript code that you define once, and can then invoke over and over again
+
+method: When functions are assigned to the properties of an object, we call  them "methods.
+
+The lexical structure of a programming language is the set of elementary rules that
+specifies how you write programs in that language. It is the lowest-level syntax of a
+language: it specifies what variable names look like, the delimiter characters for com‐
+ments, and how one program statement is separated from the next, for example.
+
+JavaScript is a case-sensitive language.
+
+JavaScript ignores spaces that appear between tokens in programs.
+
+JavaScript recognizes newlines, carriage returns, and a carriage return/line feed
+sequence as line terminators
+
+literal: A literal is a data value that appears directly in a program. The following are all literals
+    12 // The number twelve
+    1.2 // The number one point two
+    "hello world" // A string of text
+    'Hi' // Another string
+    true // A Boolean value
+    false // The other Boolean value
+    null // Absence of an object
+
+identifier: An identifier is simply a name. In JavaScript, identifiers are used to name constants,
+variables, properties, functions, and classes and to provide labels for certain loops in
+JavaScript code. A JavaScript identifier must begin with a letter, an underscore (_), or
+a dollar sign ($). Subsequent characters can be letters, digits, underscores, or dollar
+signs. (Digits are not allowed as the first character so that JavaScript can easily distin‐
+guish identifiers from numbers.) 
+
+Like many programming languages, JavaScript uses the semicolon (;) to separate
+statements
+
+In JavaScript, you can usually omit the
+semicolon between two statements if those statements are written on separate lines.
+
+
+(You can also omit a semicolon at the end of a program or if the next token in the
+program is a closing curly brace: }.) 
+
+
+one of the most fundamental charac‐
+teristics of a programming language is the set of types it supports
+
+types: JavaScript types can be divided into two categories: primitive types and object types.
+
+JavaScript’s primitive types include numbers, strings of text (known as strings), and
+Boolean truth values (known as booleans) , symbol
+
+The special JavaScript values null and undefined are primitive values
+
+Any JavaScript value that is not a number, a string, a boolean, a symbol, null, or unde
+fined is an object. An object (that is, a member of the type object) is a collection of
+properties where each property has a name and a value (either a primitive value or another object)
+
+An ordinary JavaScript object is an unordered collection of named values. The lan‐
+guage also defines a special kind of object, known as an array, that represents an
+ordered collection of numbered values
+
+object types: arrays, sets, maps, gExp, date
+
+JavaScript differs from more static languages in that functions and classes are not just
+part of the language syntax: they are themselves values that can be manipulated by
+JavaScript programs. Like any JavaScript value that is not a primitive value, functions
+and classes are a specialized kind of object.
+
+The JavaScript interpreter performs automatic garbage collection for memory man‐
+agement. This means that a JavaScript programmer generally does not need to worry
+about destruction or deallocation of objects or other values.
+
+JavaScript supports an object-oriented programming style. Loosely, this means that
+rather than having globally defined functions to operate on values of various types,
+the types themselves define methods for working with values. To sort the elements of
+an array a, for example, we don’t pass a to a sort() function. Instead, we invoke the
+sort() method of a:
+a.sort(); 
+
+ Technically, it is only JavaScript objects
+that have methods. But numbers, strings, boolean, and symbol values behave as if
+they have methods. In JavaScript, null and undefined are the only values that meth‐
+ods cannot be invoked on
+
+
+JavaScript’s object types are mutable and its primitive types are immutable. A value of
+a mutable type can change: a JavaScript program can change the values of object
+properties and array elements. Numbers, booleans, symbols, null, and undefined are
+immutable—it doesn’t even make sense to talk about changing the value of a number,
+for example. 
+
+In JavaScript, however, strings are immutable: you can access the
+text at any index of a string, but JavaScript provides no way to alter the text of an
+existing string.
+
+
+JavaScript liberally converts values from one type to another. If a program expects a
+string, for example, and you give it a number, it will automatically convert the num‐
+ber to a string for you
+
+
+Constants and variables allow you to use names to refer to values in your programs.
+
+
+let, const, var: Constants are declared with const and variables are declared with let (or with var in
+older JavaScript code).
+
+ JavaScript constants and variables are untyped: declarations do
+not specify what kind of values will be assigned
+
+numbers:  JavaScript represents numbers using the 64-bit floating point format
+−9,007,199,254,740,992 (−2^53) and 9,007,199,254,740,992 (2^53),
+
+When a number appears directly in a JavaScript program, it’s called a numeric literal.
+ base-10 integer   12121
+ hexadecimal (base-16) 0x or 0X12Abc 
+binary 0b
+octal 0o
+
+You can use underscores within numeric literals to break long literals up into chunks
+that are easier to read:
+let billion = 1_000_000_000; // Underscore as a thousands separator.
+let bytes = 0x89_AB_CD_EF; // As a bytes separator.
+let bits = 0b0001_1101_0111; // As a nibble separator.
+let fraction = 0.123_456_789; // Works in the fractional part, too.
+
+
+Arithmetic in JavaScript does not raise errors in cases of overflow, underflow, or divi‐
+sion by zero. When the result of a numeric operation is larger than the largest repre‐
+sentable number (overflow), the result is a special infinity value, Infinity
+
+Division by zero is not an error in JavaScript: it simply returns infinity or negative
+infinity. 
+
+There is one exception, however: zero divided by zero does not have a welldefined value, and the result of this operation is the special not-a-number value, Na
+
+NaN also arises if you attempt to divide infinity by infinity
+
+
+// The following Number properties are defined in ES6
+Number.parseInt() // Same as the global parseInt() function
+Number.parseFloat() // Same as the global parseFloat() function
+Number.isNaN(x) // Is x the NaN value?
+Number.isFinite(x) // Is x a number and finite?
+Number.isInteger(x) // Is x an integer?
+Number.isSafeInteger(x) // Is x an integer -(2**53) < x < 2**53?
+Number.MIN_SAFE_INTEGER // => -(2**53 - 1)
+Number.MAX_SAFE_INTEGER // => 2**53 - 1
+Number.EPSILON // => 2**-52: smallest difference between numbers
+
+The not-a-number value has one unusual feature in JavaScript: it does not compare
+equal to any other value, including itself. This means that you can’t write x === NaN
+to determine whether the value of a variable x is NaN. Instead, you must write x != x
+or Number.isNaN(x). Those expressions will be true if, and only if, x has the same
+value as the global constant NaN
+
+The global isFinite() function
+returns true if its argument is, or can be converted to, a finite number
+
+The negative zero value is also somewhat unusual. It compares equal (even using Jav‐
+aScript’s strict equality test) to positive zero, which means that the two values are
+almost indistinguishable, except when used as a divisor:
+let zero = 0; // Regular zero
+let negz = -0; // Negative zero
+zero === negz // => true: zero and negative zero are equal
+1/zero === 1/negz // => false: Infinity and -Infinity are not equa
+
+BigInt literals are written as a string of digits followed by a lowercase letter n.
+1234n // A not-so-big BigInt literal
+0b111111n // A binary BigInt
+0o7777n // An octal BigInt
+0x8000000000000000n // => 2n**63n: A 64-bit integer
+
+
+Strings
+The JavaScript type for representing text is the string. A string is an immutable
+ordered sequence of 16-bit values, each of which typically represents a Unicode char‐
+acter
+
+ JavaScript does not have a special type that represents a single element of a string. To rep‐
+resent a single 16-bit value, simply use a string that has a length of 1.
+
+Most string-manipulation methods defined by JavaScript operate on 16-bit values,
+not characters. 
+In ES6, however, strings are iterable, and if you use the for/of loop or ... operator
+with a string, it will iterate the actual characters of the string, not the 16-bit values.
+
+Strings delimited with backticks are a feature of ES6, and allow JavaScript expressions
+to be embedded within (or interpolated into) the string literal.
+
+// A string representing 2 lines written on one line:
+'two\nlines'
+// A one-line string written on 3 lines:
+"one\
+ long\
+ line"
+// A two-line string written on two lines:
+`the newline character at the end of this line
+is included literally in this string`
+
+The backslash character (\) has a special purpose in JavaScript strings. Combined
+with the character that follows it, it represents a character that is not otherwise repre‐
+sentable within the string. For example, \n is an escape sequence that represents a
+newline character
+
+Strings can be compared with the standard === equality and !== inequality operators:
+two strings are equal if and only if they consist of exactly the same sequence of 16-bit
+values
+
+
+Template Literals
+In ES6 and later, string literals can be delimited with backticks:
+let s = `hello world`;
+
+
+Tagged template literals
+A powerful but less commonly used feature of template literals is that, if a function
+name (or “tag”) comes right before the opening backtick, then the text and the values
+of the expressions within the template literal are passed to the function. The value of
+this “tagged template literal” is the return value of the function
+`\n`.length // => 1: the string has a single newline character
+String.raw`\n`.length // => 2: a backslash character and the letter n
+
+Boolean typework like, false:
+undefined
+null
+0
+-0
+NaN
+"" // the empty string
+All other values, including all objects (and arrays) convert to, and work like, true.
+
+Null and undefinednull is a language keyword that evaluates to a special value that is usually used to
+indicate the absence of a value.
+Using the typeof operator on null returns the string
+“object”, indicating that null can be thought of as a special object value that indicates
+“no object”
+The undefined
+value represents a deeper kind of absence. It is the value of variables that have not
+been initialized and the value you get when you query the value of an object property
+or array element that does not exist.
+The undefined value is also the return value of
+functions that do not explicitly return a value and the value of function parameters
+for which no argument is passed. undefined is a predefined global constant (not a
+language keyword like null
+If you apply the typeof operator to the unde
+fined value, it returns “undefined”, indicating that this value is the sole member of a
+special type.
+I consider undefined to represent a system-level, unexpected, or error-like absence of
+value and null to represent a program-level, normal, or expected absence of value
+
+symbol
+    let s1=Symbol("name");
+    let s2=Symbol("name");
+    s1==s2 // false
+
+    let s1=Symbol.for("name");
+    let s2=Symbol.for("name");
+    s1==s2 //true 
+
+Global object
+When the JavaScript interpreter starts (or whenever a web browser
+loads a new page), it creates a new global object and gives it an initial set of properties
+that define:
+• Global constants like undefined, Infinity, and NaN
+• Global functions like isNaN(), parseInt() (§3.9.2), and eval()
+• Constructor functions like Date(), RegExp(), String(), Object(), and Array()
+• Global objects like Math and JSON (§6.8
+The initial properties of the global object are not reserved words, but they deserve to
+be treated as if they are.
+
+In web browsers, the Window object serves as the global object for all JavaScript code
+contained in the browser window it represents
+
+Primitives are also compared by value
+Objects are not compared by value: two distinct objects are not equal even if they
+have the same properties and values. And two distinct arrays are not equal even if
+they have the same elements in the same order:
+
+two object values are the same if and only if they
+refer to the same underlying object.
+
+
+let a = ["a","b","c"]; // An array we want to copy
+let b = []; // A distinct array we'll copy into
+for(let i = 0; i < a.length; i++) { // For each index of a[]
+ b[i] = a[i]; // Copy an element of a into b
+}
+
+let c = Array.from(b); // In ES6, copy arrays with Array.from()
+
+Type Conversion
+10 + " objects" // => "10 objects": Number 10 converts to a string
+"7" * "4" // => 28: both strings convert to numbers
+let n = 1 - "x"; // n == NaN; string "x" can't convert to a number
+n + " objects" // => "NaN objects": NaN converts to string "NaN"
+
+Type Conversion
+The simplest way to perform an explicit type conversion is to use the Boolean(), Num
+ber(), and String() functions:
+Number("3") // => 3
+String(false) // => "false": Or use false.toString()
+Boolean([]) // => true
+
+Any value other than null or undefined has a toString() method, and the result of
+this method is usually the same as that returned by the String() function.
+
+x + "" // => String(x)
++x // => Number(x)
+x-0 // => Number(x)
+!!x // => Boolean(x): Note double 
+
+parseInt and parsFloat
+these are global functions, not methods of
+any class
+
+parseInt("3 blind mice") // => 3
+parseFloat(" 3.14 meters") // => 3.14
+parseInt("-12.34") // => -12
+parseInt("0xFF") // => 255
+parseInt("0xff") // => 255
+parseInt("-0XFF") // => -255
+parseFloat(".1") // => 0.1
+parseInt("0.1") // => 0
+parseInt(".1") // => NaN: integers can't start with "."
+parseFloat("$72.47") // => NaN: numbers can't start with "$"
+
+
+Variables and constants declared with let and const are block scoped. 
+
+though of
+course it is not legal to reference a variable or constant from lines of code that execute
+before the let or const statement that declares the variable
+
+const x = 1; // Declare x as a global constant
+if (x === 1) {
+ let x = 2; // Inside a block x can refer to a different value
+ console.log(x); // Prints 2
+}
+console.log(x); // Prints 1: we're back in the global scope now
+let x = 3; // ERROR! Syntax error trying to re-declare x
+
+destructuring assignment
+ES6 implements a kind of compound declaration and assignment syntax known as
+destructuring assignment. In a destructuring assignment, the value on the righthand
+side of the equals sign is an array or object (a “structured” value), and the lefthand
+side specifies one or more variable names using a syntax that mimics array and object
+literal syntax. When a destructuring assignment occurs, one or more values are
+extracted (“destructured”) from the value on the right and stored into the variables
+named on the lef
+
+let [x,y] = [1,2]; // Same as let x=1, y=2
+[x,y] = [x+1,y+1]; // Same as x = x + 1, y = y + 1
+[x,y] = [y,x]; // Swap the value of the two variables
+[x,y] // => [3,2]: the incremented and swapped values
+
+function toPolar(x, y) {
+ return [Math.sqrt(x*x+y*y), Math.atan2(y,x)];
+}
+// Convert polar to Cartesian coordinates
+function toCartesian(r, theta) {
+ return [r*Math.cos(theta), r*Math.sin(theta)];
+}
+3.10 Variable Declaration and Assignment | 57
+let [r,theta] = toPolar(1.0, 1.0); // r == Math.sqrt(2); theta == Math.PI/4
+let [x,y] = toCartesian(r,theta); // [x, y] == [1.0, 1,0]
+
+If you want to collect all unused or remaining values into a single variable when
+destructuring an array, use three dots (...) before the last variable name on the left hand side:
+let [x, ...y] = [1,2,3,4]; // y == [2,3,4]
+
+let [first, ...rest] = "Hello"; // first == "H"; rest == ["e","l","l","o"]
+
+object destructuring
+let transparent = {r: 0.0, g: 0.0, b: 0.0, a: 1.0}; // A RGBA color
+let {r, g, b} = transparent; // r == 0.0; g == 0.0; b == 0.0
+
+// Same as const sin=Math.sin, cos=Math.cos, tan=Math.tan
+const {sin, cos, tan} = Math;
+
+Each of the identifiers on the
+lefthand side of an object destructuring assignment can also be a colon-separated pair
+of identifiers, where the first is the name of the property whose value is to be assigned
+and the second is the name of the variable to assign it to:
+// Same as const cosine = Math.cos, tangent = Math.tan;
+const { cos: cosine, tan: tangent } = Math;
+
+An expression is a phrase of JavaScript that can be evalu‐
+ated to produce a value
+
+Undefined elements can be included in an array literal by simply omitting a value
+between commas. For example, the following array contains five elements, including
+three undefined elements:
+let sparseArray = [1,,,,5];
+
+Object initializer expressions are like array initializer expressions, but the square
+brackets are replaced by curly brackets, and each subexpression is prefixed with a
+property name and a colon:
+let p = { x: 2.3, y: -1.2 }; // An object with 2 properties
+let q = {}; // An empty object with no properties
+q.x = 2.3; q.y = -1.2; // Now q has the same properties as p
+
+ Property Access Expressions
+A property access expression evaluates to the value of an object property or an array
+element. JavaScript defines two syntaxes for property access:
+expression . identifier
+expression [ expression ]
+
+
+Conditional Property Access
+ES2020 adds two new kinds of property access expressions:
+expression ?. identifier
+expression ?.[ expression ]
+In JavaScript, the values null and undefined are the only two values that do not have
+properties. In a regular property access expression using . or [], you get a TypeError
+if the expression on the left evaluates to null or undefined. You can use ?. and ?.[]
+syntax to guard against errors of this type.
+
+This form of property access expression is sometimes called “optional chaining”
+because it also works for longer “chained” property access expressions like this one:
+let a = { b: null };
+a.b?.c.d // => undefined
+
+Conditional property access is also possible using ?.[] instead of []. 
+a?.[index++] 
+
+Every invocation expression includes a pair of parentheses and an expression before
+the open parenthesis. If that expression is a property access expression, then the invo‐
+cation is known as a method invocation. 
+
+Object Creation Expressions
+new Object()
+new Point(2,3)
+
+JavaScript supports one ternary operator, the condi‐
+tional operator ?:, which combines three expressions into a single expression.
+
+
+lvalue is a historical term that means “an
+expression that can legally appear on the left side of an assignment expression.” In
+JavaScript, variables, properties of objects, and elements of arrays are lvalues
+
+Side effect 
+= , ++, -- delete
+No other JavaScript operators have side effects, but function invocation and object
+creation expressions will have side effects if any of the operators used in the function
+or constructor body have side effects
+
+Operator Associativity
+The associativity of an operator specifies the order in which operations of the
+same precedence are performed
+
+y = a ** b ** c;
+x = ~-y;
+w = x = y = z;
+q = a?b:c?d:e?f:g;
+are equivalent to:
+y = (a ** (b ** c));
+x = ~(-y);
+w = (x = (y = z));
+q = a?b:(c?d:(e?f:g));
+
+Arithmatic
+*+-**/ %
+If either operand
+is (or converts to) NaN, the result of the operation is (almost always) NaN.
+
+In JavaScript,
+however, all numbers are floating-point, so all division operations have floating-point
+results: 5/2 evaluates to 2.5, not 2. Division by zero yields positive or negative infin‐
+ity, while 0/0 evaluates to NaN: neither of these cases raises an error
+
+Here are some examples:
+1 + 2 // => 3: addition
+"1" + "2" // => "12": concatenation
+"1" + 2 // => "12": concatenation after number-to-string
+1 + {} // => "1[object Object]": concatenation after object-to-string
+true + true // => 2: addition after boolean-to-number
+2 + null // => 2: addition after null converts to 0
+2 + undefined // => NaN: addition after undefined converts to NaN
+
+For example:
+1 + 2 + " blind mice" // => "3 blind mice"
+1 + (2 + " blind mice") // => "12 blind mice"
+
+The first line has no parentheses, and the + operator has left-to-right associativity, so
+the two numbers are added first, and their sum is concatenated with the string
+
+Note that the expression x++ is not always the same as x=x+1. The ++ operator
+never performs string concatenation: it always converts its operand to a number
+and increments it. If x is the string “1”, ++x is the number 2, but x+1 is the string
+“11”
+
+equality
+The === operator
+is known as the strict equality operator (or sometimes the identity operator), and it
+checks whether its two operands are “identical” using a strict definition of sameness.
+The == operator is known as the equality operator; i
+
+If one or both values is NaN, they are not equal. (This is surprising, but the NaN
+value is never equal to any other value, including itself! To check whether a value
+x is NaN, use x !== x, or the global isNaN() function.)
+
+
+1 + 2 // => 3: addition.
+"1" + "2" // => "12": concatenation.
+"1" + 2 // => "12": 2 is converted to "2".
+11 < 3 // => false: numeric comparison.
+"11" < "3" // => true: string comparison.
+"11" < 3 // => false: numeric comparison, "11" converted to 11.
+"one" < 3 // => false: numeric comparison, "one" converted to NaN.
+
+Finally, note that the <= (less than or equal) and >= (greater than or equal) operators
+do not rely on the equality or strict equality operators for determining whether two
+values are “equal.” Instead, the less-than-or-equal operator is simply defined as “not
+greater than,” and the greater-than-or-equal operator is defined as “not less than.” The
+
+one exception occurs when either operand is (or converts to) NaN, in which case, all
+four comparison operators return false.
+
+in operator
+
+let point = {x: 1, y: 1}; // Define an object
+"x" in point // => true: object has property named "x"
+"z" in point // => false: object has no "z" property.
+"toString" in point // => true: object inherits toString method
+let data = [7,8,9]; // An array with elements (indices) 0, 1, and 2
+"0" in data // => true: array has an element "0"
+1 in data // => true: numbers are converted to strings
+3 in data // => false: no element 3
+
+instanceof operator
+
+let d = new Date(); // Create a new object with the Date() constructor
+d instanceof Date // => true: d was created with Date()
+d instanceof Object // => true: all objects are instances of Object
+d instanceof Number // => false: d is not a Number object
+let a = [1, 2, 3]; // Create an array with array literal syntax
+a instanceof Array // => true: a is an array
+a instanceof Object // => true: all arrays are objects
+a instanceof RegExp // => false: arrays are not regular expressions
+
+ If the left-side operand of
+instanceof is not an object, instanceof returns false. If the righthand side is not a
+class of objects, it throws a TypeError.
+
+if (a === b) stop(); // Invoke stop() only if a === b
+(a === b) && stop(); // This does the same thing
+
+// If maxWidth is truthy, use that. Otherwise, look for a value in
+// the preferences object. If that is not truthy, use a hardcoded constant.
+let max = maxWidth || preferences.maxWidth || 500;
+
+default value 
+function copy(o,p={}) { ... }.
+
+Unlike the && and || operators, the ! operator converts its operand to a boolean value
+
+In most cases, the expression:
+a op= b
+where op is an operator, is equivalent to the expression:
+a = a op b
+data[i++] *= 2;
+data[i++] = data[i++] * 2;
+
+The conditional operator is the only ternary operator (three operands) in JavaScript
+and is sometimes actually called the ternary operator. This operator is sometimes
+written ?:
+
+greeting = "hello " + (username ? username : "there");
+
+?? operator (first defined operator)
+It is only when the first operand is
+“nullish” (i.e., null or undefined) that this operator evaluates and returns the second
+operand:
+
+let options = { timeout: 0, title: "", verbose: false, n: null };
+options.timeout ?? 1000 // => 0: as defined in the object
+options.title ?? "Untitled" // => "": as defined in the object
+options.verbose ?? true // => false: as defined in the object
+options.quiet ?? false // => false: property is not defined
+options.n ?? 10 // => 10: property is null
+
+(a ?? b) || c // ?? first, then ||
+a ?? (b || c) // || first, then ??
+a ?? b || c // SyntaxError: parentheses are required
+
+Deleting an array element leaves a “hole” in
+the array and does not change the array’s length. The resulting array is sparse
+
+non-configurable properties (§14.1) are immune from
+deletion.
+
+Here are some example uses of the delete operator:
+let o = {x: 1, y: 2};
+delete o.x; // Delete one of the object properties; returns true.
+typeof o.x; // Property does not exist; returns "undefined".
+delete o.x; // Delete a nonexistent property; returns true.
+delete 1; // This makes no sense, but it just returns true.
+// Can't delete a variable; returns false, or SyntaxError in strict mode.
+delete o;
+
+
+// Undeletable property: returns false, or TypeError in strict mode.
+delete Object.prototype;
+
+
+Expressions with side effects, such as assignments and function invocations,
+can stand alone as statements, and when used this way are known as expression state‐
+ments. A similar category of statements are the declaration statements that declare
+new variables and define new functions.
+
+control struc‐
+tures
+
+Conditionals
+Statements like if and switch that make the JavaScript interpreter execute or
+skip other statements depending on the value of an expression
+Loops
+Statements like while and for that execute other statements repetitively
+Jumps
+Statements like break, return, and throw that cause the interpreter to jump to
+another part of the program
+
+Expression Statements
+
+The simplest kinds of statements in JavaScript are expressions that have side effects.
+This sort of statement was shown in Chapter 4. Assignment statements are one major
+category of expression statements. For example:
+greeting = "Hello " + name;
+i *= 3;
+
+The increment and decrement operators, ++ and --, are related to assignment state‐
+ments. These have the side effect of changing a variable value, just as if an assignment
+had been performed:
+counter++;
+The delete operator has the important side effect of deleting an object property.
+Thus, it is almost always used as a statement, rather than as part of a larger
+expression:
+delete o.x;
+Function calls are another major category of expression statements. For example:
+console.log(debugMessage);
+displaySpinner(); // A hypothetical function to display a spinner in a web app.
+
+A statement block is simply a sequence of statements enclosed within curly
+braces.
+
+function convert(x) {
+ switch(typeof x) {
+ case "number": // Convert the number to a hexadecimal integer
+ return x.toString(16);
+ case "string": // Return the string enclosed in quotes
+ return '"' + x + '"';
+ default: // Convert any other type in the usual way
+ return String(x);
+ }
+}
+
+in switch
+The matching case is determined using the === identity
+operator, not the == equality operator, so the expressions must match without any
+type conversion.
+
+JavaScript has five
+looping statements: while, do/while, for, for/of (and its for/await variant), and
+for/in.
+
+for(initialize ; test ; increment)
+ statement
+initialize, test, and increment are three expressions (separated by semicolons) that are
+responsible for initializing, testing, and incrementing the loop variable
+
+initialize;
+while(test) {
+ statement
+ increment;
+}
+
+let i, j, sum = 0;
+for(i = 0, j = 10 ; i < 10 ; i++, j--) 
+sum += i * j;
+}
+
+function tail(o) { // Return the tail of linked list o
+ for(; o.next; o = o.next) /* empty */ ; // Traverse while o.next is truthy
+ return o;
+}
+Note that this code has no initialize expression. Any of the three expressions may be
+omitted from a for loop, but the two semicolons are required. If you omit the test
+expression, the loop repeats forever, and for(;;) is another way of writing an infinite
+loop, like while(true)
+
+
+The for/of loop works with iterable objects
+
+let data = [1, 2, 3, 4, 5, 6, 7, 8, 9], sum = 0;
+for(let element of data) {
+ sum += element;
+}
+sum // => 45
+
+In the code just shown, the loop body runs once for each element of the data array.
+
+
+for/of with objects
+Objects are not (by default) iterable. Attempting to use for/of on a regular object
+throws a TypeError at runtime:
+let o = { x: 1, y: 2, z: 3 };
+for(let element of o) { // Throws TypeError because o is not iterable
+ console.log(element);
+}
+
+If you want to iterate through the properties of an object, you can use the for/in loop
+(introduced in §5.4.5), or use for/of with the Object.keys() method:
+let o = { x: 1, y: 2, z: 3 };
+let keys = "";
+for(let k of Object.keys(o)) {
+ keys += k;
+}
+keys // => "xyz"
+
+you can also iterate through their corresponding values like this:
+let sum = 0;
+for(let v of Object.values(o)) {
+ sum += v;
+}
+sum // => 6
+
+And if you are interested in both the keys and the values of an object’s properties, you
+can use for/of with Object.entries() and destructuring assignment:
+let pairs = "";
+for(let [k, v] of Object.entries(o)) {
+ pairs += k + v;
+}
+pairs // => "x1y2z3"
+
+
+for/of with strings
+Strings are iterable character-by-character in ES6:
+let frequency = {};
+for(let letter of "mississippi") {
+ if (frequency[letter]) {
+ frequency[letter]++;
+ } else {
+ frequency[letter] = 1;
+ }
+}
+frequency // => {m: 1, i: 4, s: 4, p: 2}
+
+Maps are an interesting case because the iterator for a Map object does not iterate the
+Map keys, or the Map values, but key/value pairs
+
+
+ for/in
+A for/in loop looks a lot like a for/of loop, with the of keyword changed to in.
+While a for/of loop requires an iterable object after the of, a for/in loop works with
+any object after the in. The for/of loop is new in ES6, but for/in has been part of
+JavaScript since the very beginning (which is why it has the more natural sounding
+syntax).
+The for/in statement loops through the property names of a specified object. The
+syntax looks like this:
+for (variable in object)
+ statement
+
+ The for/in loop does not actually enumerate all properties of an object. It does not
+enumerate properties whose names are symbols. And of the properties whose names
+are strings, it only loops over the enumerable properties
+
+All properties and methods defined by your
+code are enumerable, by default
+
+use a for/of loop with Object.keys()
+instead of a for/in loop.
+
+ break and continue
+are the only JavaScript statements that use statement labels
+
+Because it causes a loop or switch to exit, this form of the break statement is legal
+only if it appears inside one of these statements
+
+Finally, note that a break statement, with or without a label, can not transfer control
+across function boundaries. You cannot label a function definition statement, for
+example, and then use that label inside the function.
+
+The continue statement, in both its labeled and unlabeled forms, can be used only
+within the body of a loop. Using it anywhere else causes a syntax error.
+
+A return statement may appear only within the body of a function.
+It is a syntax
+error for it to appear anywhere else
+When the return statement is executed, the
+function that contains it returns the value of expression to its caller
+
+The return statement can also be used without an expression to make the function
+return undefined to its caller. For example:
+function displayObject(o) {
+ // Return immediately if the argument is null or undefined.
+ if (!o) return;
+// Rest of function goes here...
+}
+
+An exception is a signal that indicates that some sort of exceptional condition or error
+has occurred. To throw an exception is to signal such an error or exceptional condi‐
+tion. To catch an exception is to handle it—to take whatever actions are necessary or
+appropriate to recover from the exception
+In JavaScript, exceptions are thrown
+whenever a runtime error occurs and whenever the program explicitly throws one
+using the throw statement.
+
+expression may evaluate to a value of any type. You might throw a number that repre‐
+sents an error code or a string that contains a human-readable error message.
+An Error object has a name property that specifies
+the type of error and a message property that holds the string passed to the construc‐
+tor function
+
+The try/catch/finally statement is JavaScript’s exception handling mechanism
+
+These braces are a required part of the syntax and cannot be omitted, even if a
+clause contains only a single statement
+
+In the normal case, the JavaScript interpreter reaches the end of the try block and
+then proceeds to the finally block, which performs any necessary cleanup. If the
+interpreter left the try block because of a return, continue, or break statement, the
+finally block is executed before the interpreter jumps to its new destination
+
+If there is no local catch block to handle the exception, the interpreter first
+executes the finally block and then jumps to the nearest containing catch clause.
+
+// Simulate for(initialize ; test ;increment ) body;
+initialize ;
+while( test ) {
+ try { body ; }
+ finally { increment ; }
+}
+
+function parseJSON(s) {
+ try {
+ return JSON.parse(s);
+ } catch {
+ // Something went wrong but we don't care what it was
+ return undefined;
+ }
+}
+
+
+directive
+It does not include any language keywords: the directive is just an expression
+statement that consists of a special string literal (in single or double quotes).
+• It can appear only at the start of a script or at the start of a function body, before
+any real statements have appeared.
+
+In addition to code explicitly declared to be
+strict, any code in a class body (Chapter 9) or in an ES6 module (§10.3) is automati‐
+cally strict code. This means that if all of your JavaScript code is written as modules,
+then it is all automatically strict, and you will never need to use an explicit "use
+strict" directive.
+
+function
+We say that function declara‐
+tions are “hoisted” because it is as if they had all been moved up to the top of what‐
+ever scope they are defined within. The upshot is that code that invokes a function
+can exist in your program before the code that declares the function
+class
+Unlike functions, class declarations are not hoisted, and you cannot use a class
+declared this way in code that appears before the declaration.
+
+A module is a file of Java‐
+Script code with its own global namespace, completely independent of all other mod‐
+ules. The only way that a value (such as function or class) defined in one module can
+be used in another module is if the defining module exports it with export and the
+using module imports it with import
+
+Introduction to Objects
+An object is a composite value: it aggregates multiple values (primitive values or
+other objects) and allows you to store and retrieve those values by name. An object is
+an unordered collection of properties, each of which has a name and a value
+
+JavaScript objects are dynamic—properties can usually be added and deleted
+They can also be used (by ignoring the value part of the string-to-value map‐
+ping) to represent sets of strings.
+
+JavaScript
+uses the term own property to refer to non-inherited properties.
+
+In addition to its name and value, each property has three property attributes:
+• The writable attribute specifies whether the value of the property can be set.
+• The enumerable attribute specifies whether the property name is returned by a
+for/in loop.
+• The configurable attribute specifies whether the property can be deleted and
+whether its attributes can be altered.
+
+Many of JavaScript’s built-in objects have properties that are read-only, nonenumerable, or non-configurable. By default, however, all properties of the objects
+you create are writable, enumerable, and configurabl
+
+
+Creating Objects
+Objects can be created with object literals, with the new keyword, and with the
+Object.create() function. The subsections below describe each technique.
+
+Prototypes
+Before we can cover the third object creation technique, we must pause for a moment
+to explain prototypes. Almost every JavaScript object has a second JavaScript object
+associated with it. This second object is known as a prototype, and the first object
+inherits properties from the prototype.
+
+Remember: almost all objects have a proto‐
+type, but only a relatively small number of objects have a prototype property. It is
+these objects with prototype properties that define the prototypes for all the other
+objects.
+
+For example, Date.prototype inherits proper‐
+ties from Object.prototype, so a Date object created by new Date() inherits proper‐
+ties from both Date.prototype and Object.prototype. This linked series of
+prototype objects is known as a prototype chain.
+
+You can pass null to create a new object that does not have a prototype, but if you do
+this, the newly created object will not inherit anything, not even basic methods like
+toString() (which means it won’t work with the + operator either):
+let o2 = Object.create(null); // o2 inherits no props or methods.
+
+If you want to create an ordinary empty object (like the object returned by {} or new
+Object()), pass Object.prototype:
+let o3 = Object.create(Object.prototype); // o3 is like {} or new Object().
+
+One use for Object.create() is when you want to guard against unintended (but
+nonmalicious) modification of an object by a library function that you don’t have
+control over. Instead of passing the object directly to the function, you can pass an
+object that inherits from it. If the function reads properties of that object, it will see
+the inherited values. If it sets properties, however, those writes will not affect the orig‐
+inal object.
+let o = { x: "don't change this value" };
+library.function(Object.create(o)); // Guard against accidental modifications
+
+object property accessobject.property
+object["property"]
+
+The second syntax, using square brackets
+and a string, looks like array access, but to an array indexed by strings rather than by
+numbers. This kind of array is known as an associative array (or hash or map or dic‐
+tionary). JavaScript objects are associative arrays
+
+suppose you assign to the property x of the object o. If o already has an own
+(non-inherited) property named x, then the assignment simply changes the value of
+this existing property. Otherwise, the assignment creates a new property named x on
+the object o. If o previously inherited the property x, that inherited property is now
+hidden by the newly created own property with the same name.
+
+It is not an error to query a property that does not exist. If the property x is not found
+as an own property or an inherited property of o, the property access expression o.x
+evaluates to undefined. Recall that our book object has a “sub-title” property, but not
+a “subtitle” property:
+book.subtitle // => undefined: property doesn't exist
+It is an error, however, to attempt to query a property of an object that does not exist.
+The null and undefined values have no properties, and it is an error to query prop‐
+erties of these values. Continuing the preceding example:
+let len = book.subtitle.length; // !TypeError: undefined doesn't have length
+
+Property access expressions will fail if the lefthand side of the . is null or undefined.
+
+// A verbose and explicit technique
+let surname = undefined;
+if (book) {
+ if (book.author) {
+ surname = book.author.surname;
+ }
+}
+// A concise and idiomatic alternative to get surname or null or undefined
+surname = book && book.author && book.author.surname;
+
+conditional property access with ?., which
+allows us to rewrite the previous assignment expression as:
+let surname = book?.author?.surname;
+
+The rules that specify when a property assignment succeeds and when it fails are
+intuitive but difficult to express concisely. An attempt to set a property p of an object
+o fails in these circumstances:
+• o has an own property p that is read-only: it is not possible to set read-only
+properties.
+• o has an inherited property p that is read-only: it is not possible to hide an inher‐
+ited read-only property with an own property of the same name.
+• o does not have an own property p; o does not inherit a property p with a setter
+method, and o’s extensible attribute (see §14.2) is false. Since p does not already
+exist in o, and if there is no setter method to call, then p must be added to o. But
+if o is not extensible, then no new properties can be defined on it
+
+The delete operator (§4.13.4) removes a property from an object. Its single operand
+should be a property access expression. Surprisingly, delete does not operate on the
+value of the property but on the property itself:
+delete book.author; // The book object now has no author property.
+delete book["main title"]; // Now it doesn't have "main title", either.
+
+The delete operator only deletes own properties, not inherited ones. (To delete an
+inherited property, you must delete it from the prototype object in which it is defined.
+Doing this affects every object that inherits from that prototype.)
+
+let o = {x: 1}; // o has own property x and inherits property toString
+delete o.x // => true: deletes property x
+delete o.x // => true: does nothing (x doesn't exist) but true anyway
+delete o.toString // => true: does nothing (toString isn't an own property)
+delete 1 // => true: nonsense, but true anyway
+
+delete does not remove properties that have a configurable attribute of false. Cer‐
+tain properties of built-in objects are non-configurable, as are properties of the global
+object created by variable declaration and function declaration. In strict mode,
+attempting to delete a non-configurable property causes a TypeError. In non-strict
+mode, delete simply evaluates to false in this case:
+// In strict mode, all these deletions throw TypeError instead of returning false
+delete Object.prototype // => false: property is non-configurable
+var x = 1; // Declare a global variable
+delete globalThis.x // => false: can't delete this property
+function f() {} // Declare a global function
+delete globalThis.f // => false: can't delete this property either
+
+globalThis.x = 1; // Create a configurable global property (no let or var)
+delete x // => true: this property can be deleted
+
+delete x; // SyntaxError in strict mode
+delete globalThis.x; // This work
+
+Testing Properties
+let o = { x: 1 };
+"x" in o // => true: o has an own property "x"
+"y" in o // => false: o doesn't have a property "y"
+"toString" in o // => true: o inherits a toString property
+
+let o = { x: 1 };
+o.hasOwnProperty("x") // => true: o has an own property x
+o.hasOwnProperty("y") // => false: o doesn't have a property y
+o.hasOwnProperty("toString") // => false: toString is an inherited property
+
+The propertyIsEnumerable() refines the hasOwnProperty() test. It returns true
+only if the named property is an own property and its enumerable attribute is true
+
+let o = { x: 1 };
+o.propertyIsEnumerable("x") // => true: o has an own enumerable property x
+
+let o = { x: 1 };
+o.x !== undefined // => true: o has a property x
+o.y !== undefined // => false: o doesn't have a property y
+o.toString !== undefined // => true: o inherits a toString property
+
+in can distinguish between properties that do not exist and
+properties that exist but have been set to undefined. Consider this code:
+let o = { x: undefined }; // Property is explicitly set to undefined
+o.x !== undefined // => false: property exists but is undefined
+o.y !== undefined // => false: property doesn't even exist
+"x" in o // => true: the property exists
+"y" in o // => false: the property doesn't exist
+delete o.x; // Delete the property x
+"x" in o // => false: it doesn't exist anymor
+
+Enumerating Properties
+let o = {x: 1, y: 2, z: 3}; // Three enumerable own properties
+o.propertyIsEnumerable("toString") // => false: not enumerable
+for(let p in o) { // Loop through the properties
+ console.log(p); // Prints x, y, and z, but not toString
+}
+
+To guard against enumerating inherited properties with for/in, you can add an
+explicit check inside the loop body:
+for(let p in o) {
+ if (!o.hasOwnProperty(p)) continue; // Skip inherited properties
+}
+for(let p in o) {
+ if (typeof o[p] === "function") continue; // Skip all methods
+}
+
+As an alternative to using a for/in loop, it is often easier to get an array of property
+names for an object and then loop through that array with a for/of loop. There are
+four functions you can use to get an array of property names:
+• Object.keys() returns an array of the names of the enumerable own properties
+of an object. It does not include non-enumerable properties, inherited properties,
+or properties whose name is a Symbol (see §6.10.3).
+• Object.getOwnPropertyNames() works like Object.keys() but returns an array
+of the names of non-enumerable own properties as well, as long as their names
+are strings.
+• Object.getOwnPropertySymbols() returns own properties whose names are
+Symbols, whether or not they are enumerable.
+• Reflect.ownKeys() returns all own property names, both enumerable and nonenumerable, and both string and Symb
+
+Extending objects
+Object.assign() expects two or more objects as its arguments. It modifies and
+returns the first argument, which is the target object, but does not alter the second or
+any subsequent arguments, which are the source objects. For each source object, it
+copies the enumerable own properties of that object (including those whose names
+are Symbols) into the target object
+
+Instead, what you can do is to create a new object, copy the defaults into it, and then
+override those defaults with the properties in o:
+o = Object.assign({}, defaults, o);
+
+
+Serializing Objects
+Object serialization is the process of converting an object’s state to a string from
+which it can later be restored. The functions JSON.stringify() and JSON.parse()
+serialize and restore JavaScript objects. 
+
+Objects, arrays, strings, finite numbers, true, false, and null are supported and
+can be serialized and restored. NaN, Infinity, and -Infinity are serialized to null.
+Date objects are serialized to ISO-formatted date strings 
+but JSON.parse() leaves these in string form and does not restore the orig‐
+inal Date object. Function, RegExp, and Error objects and the undefined value can‐
+not be serialized or restored
+
+let point = {
+ x: 3,
+ y: 4,
+ valueOf: function() { return Math.hypot(this.x, this.y); }
+};
+Number(point) // => 5: valueOf() is used for conversions to numbers
+
+Shorthand Properties
+let x = 1, y = 2;
+let o = {
+ x: x,
+ y: y
+};
+In ES6 and later, you can drop the colon and one copy of the identifier and end up
+with much simpler code:
+let x = 1, y = 2;
+let o = { x, y };
+o.x + o.y // => 3
+
+Computed Property Names
+const PROPERTY_NAME = "p1";
+function computePropertyName() { return "p" + 2; }
+let o = {};
+o[PROPERTY_NAME] = 1;
+o[computePropertyName()] = 2;
+It is much simpler to set up an object like this with an ES6 feature known as computed
+properties that lets you take the square brackets from the preceding code and move
+them directly into the object literal:
+const PROPERTY_NAME = "p1";
+function computePropertyName() { return "p" + 2; }
+let p = {
+ [PROPERTY_NAME]: 1,
+ [computePropertyName()]: 2
+};
+p.p1 + p.p2 // => 3
+
+In ES6 and later, property names can be strings or symbols
+If you assign a sym‐
+bol to a variable or constant, then you can use that symbol as a property name using
+the computed property syntax:
+const extension = Symbol("my extension symbol");
+let o = {
+ [extension]: { /* extension data stored in this object */ }
+};
+o[extension].x = 0; // This won't conflict with other properties of o
+
+Create a new Symbol by calling the Symbol() factory function. (Symbols are
+primitive values, not objects, so Symbol() is not a constructor function that you
+invoke with new.) The value returned by Symbol() is not equal to any other Symbol or
+other value. You can pass a string to Symbol(), and this string is used when your
+Symbol is converted to a string. But this is a debugging aid only: two Symbols created
+with the same string argument are still different from one another.
+
+The point of Symbols is not security, but to define a safe extension mechanism for
+JavaScript objects
+
+That third-party code could, of course, use Object.getOwn
+PropertySymbols() to discover the Symbols you’re using and could then alter or
+delete your properties. This is why Symbols are not a security mechanism.)
+
+Spread Operator
+In ES2018 and later, you can copy the properties of an existing object into a new
+object using the “spread operator” ... inside an object literal:
+let position = { x: 0, y: 0 };
+let dimensions = { width: 100, height: 75 };
+let rect = { ...position, ...dimensions };
+rect.x + rect.y + rect.width + rect.height // => 175
+
+Also note that the spread operator only spreads the own properties of an object, not
+any inherited ones:
+let o = Object.create({x: 1}); // o inherits the property x
+let p = { ...o };
+p.x // => undefined
+
+Shorthand Methods
+
+let square = {
+ area: function() { return this.side * this.side; },
+ side: 10
+};
+square.area() // => 100
+let square = {
+ area() { return this.side * this.side; },
+ side: 10
+};
+square.area() // => 100
+
+Accessor properties are inherited, just as data properties are, so you can use the object
+p defined above as a prototype for other points. You can give the new objects their
+own x and y properties, and they’ll inherit the r and theta properties:
+let q = Object.create(p); // A new object that inherits getters and setters
+q.x = 3; q.y = 4; // Create q's own data properties
+q.r // => 5: the inherited accessor properties work
+q.theta // => Math.atan2(4, 3)
+
+
+An array is an ordered collection of values. Each value
+is called an element, and each element has a numeric position in the array, known as
+its index. JavaScript arrays are untyped: an array element may be of any type, and dif‐
+ferent elements of the same array may be of different types
+JavaScript
+arrays are dynamic: they grow or shrink as needed, and there is no need to declare a
+fixed size for the array when you create it or to reallocate it when the size changes.
+JavaScript arrays may be sparse: the elements need not have contiguous indexes, and
+there may be gaps
+
+Creating Arrays
+  Array literals
+• The ... spread operator on an iterable object
+• The Array() constructor
+• The Array.of() and Array.from() factory methods
+
+If an array literal contains multiple commas in a row, with no value between, the
+array is sparse (see §7.3). Array elements for which values are omitted do not exist
+but appear to be undefined if you query them:
+let count = [1,,3]; // Elements at indexes 0 and 2. No element at index 1
+let undefs = [,,]; // An array with no elements but a length of 2
+Array literal syntax allows an optional trailing comma, so [,,] has a length of 2,
+not 3.
+
+The Spread Operator
+In ES6 and later, you can use the “spread operator,” ..., to include the elements of
+one array within an array literal:
+let a = [1, 2, 3];
+let b = [0, ...a, 4]; // b == [0, 1, 2, 3, 4]
+
+The spread operator is a convenient way to create a (shallow) copy of an array:
+let original = [1,2,3];
+let copy = [...original];
+copy[0] = 0; // Modifying the copy does not change the original
+original[0] // => 1
+
+let digits = [..."0123456789ABCDEF"];
+digits // => ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+
+Remove duplicate
+let letters = [..."hello world"];
+[...new Set(letters)] // => ["h","e","l","o"," ","w","r","d"]
+
+4 Array.of()
+When the Array() constructor function is invoked with one numeric argument, it
+uses that argument as an array length. But when invoked with more than one
+numeric argument, it treats those arguments as elements for the array to be created.
+This means that the Array() constructor cannot be used to create an array with a sin‐
+gle numeric element.
+In ES6, the Array.of() function addresses this problem: it is a factory method that
+creates and returns a new array, using its argument values (regardless of how many of
+them there are) as the array elements
+
+Array.of() // => []; returns empty array with no arguments
+Array.of(10) // => [10]; can create arrays with a single numeric argument
+Array.of(1,2,3) // => [1, 2, 3
+
+Array.from()
+Array.from is another array factory method introduced in ES6. It expects an iterable
+or array-like object as its first argument and returns a new array that contains the ele‐
+ments of that object. With an iterable argument, Array.from(iterable) works like
+the spread operator [...iterable] does. It is also a simple way to make a copy of an
+array:
+let copy = Array.from(original);
+
+Array-like objects are non-array objects that have a numeric
+length property and have values stored with properties whose names happen to be
+integers. When working with client-side JavaScript, the return values of some web
+browser methods are array-like, and it can be easier to work with them if you first
+convert them to true arrays:
+
+The fact that array indexes are simply a special type of object property name means
+that JavaScript arrays have no notion of an “out of bounds” error. When you try to
+query a nonexistent property of any object, you don’t get an error; you simply get
+undefined. This is just as true for arrays as it is for objects:
+
+let a1 = [,]; // This array has no elements and length 1
+let a2 = [undefined]; // This array has one undefined element
+0 in a1 // => false: a1 has no element with index 0
+0 in a2 // => true: a2 has the undefined value at index 0
+
+The first we described above: if
+you assign a value to an array element whose index i is greater than or equal to the
+array’s current length, the value of the length property is set to i+1.
+The second special behavior that arrays implement in order to maintain the length
+invariant is that, if you set the length property to a non-negative integer n smaller
+than its current value, any array elements whose index is greater than or equal to n
+are deleted from the array:
+a = [1,2,3,4,5]; // Start with a 5-element array.
+a.length = 3; // a is now [1,2,3].
+a.length = 0; // Delete all elements. a is [].
+a.length = 5; // Length is 5, but no elements, like new Array(5)
+
+Pushing a value onto an array a is the same as assigning the value to a[a.length].
+
+You can use the unshift() method (described in §7.8) to insert a value at the begin‐
+ning of an array
+The pop()
+method is the opposite of push(): it removes the last element of the array and returns
+it, reducing the length of an array by 1. Similarly, the shift() method removes and
+returns the first element of the array, reducing the length by 1 and shifting all ele‐
+ments down to an index one lower than their current index
+
+let a = [1,2,3];
+delete a[2]; // a now has no element at index 2
+2 in a // => false: no array index 2 is defined
+a.length // => 3: delete does not affect array length
+
+Finally, splice() is the general-purpose method for inserting, deleting, or replacing
+array elements. It alters the length property and shifts array elements to higher or
+lower indexes as needed
+
+As you would expect, forEach() iterates the array in order, and it actually passes the
+array index to your function as a second argument, which is occasionally useful.
+Unlike the for/of loop, the forEach() is aware of sparse arrays and does not invoke
+your function for elements that are not there
+
+Matrix
+// Create a multidimensional array
+let table = new Array(10); // 10 rows of the table
+for(let i = 0; i < table.length; i++) {
+ table[i] = new Array(10); // Each row has 10 columns
+}
+// Initialize the array
+for(let row = 0; row < table.length; row++) {
+ for(let col = 0; col < table[row].length; col++) {
+ table[row][col] = row*col;
+ }
+}
+// Use the multidimensional array to compute 5*7
+table[5][7] // => 35
+
+//===========================
+array methods
+//===========================
+
+
+returns new array                               changes the array
+map()                                           push()
+filter()                                        pop()
+flat()                                          shift()
+flatMap()                                       unshift()
+concat()                                        splice()
+slice()                                         fill()
+                                                copyWithin()
+                                                sort()
+                                                revense()
+
+reduce return value not array so it never changes original array
+
+forEach()
+--------------------------------------------------------
+myarray.forEach(function(value,index,arrayItSelf){
+    arrayItSelf[index]=value+1;
+})
+Note that forEach() does not provide a way to terminate iteration before all elements
+have been passed to the function. That is, there is no equivalent of the break state‐
+ment you can use with a regular for loop.
+
+map()
+--------------------------------------------------------
+Note that map() returns a new array: it does not modify the array it is invoked
+on.
+If that array is sparse, your function will not be called for the missing elements,
+but the returned array will be sparse in the same way as the original array
+
+
+filter()
+--------------------------------------------------------
+The function you pass to it should be predicate: a func‐
+tion that returns true or false.
+
+Note that filter() skips missing elements in sparse arrays and that its return value is
+always dense. To close the gaps in a sparse array, you can do this:
+let dense = sparse.filter(() => true);
+And to close gaps and remove undefined and null elements, you can use filter, like
+this:
+a = a.filter(x => x !== undefined && x !== null);
+
+
+
+find()
+findIndex()
+--------------------------------------------------------
+Unlike filter(), however, these two methods stop iterating the first time the
+predicate finds an element. When that happens, find() returns the matching ele‐
+ment, and findIndex() returns the index of the matching element. If no matching
+element is found, find() returns undefined and findIndex() returns -1
+
+
+every()
+some()
+--------------------------------------------------------
+by mathematical convention, every() returns true and some returns
+false when invoked on an empty array
+
+
+
+reduce()
+--------------------------------------------------------
+ goes by the names “inject” and “fold.” 
+
+Calling reduce() on an empty array with no initial value argument causes a
+TypeError. If you call it with only one value—either an array with one element and
+no initial value or an empty array and an initial value—it simply returns that one
+value without ever calling the reduction function.
+
+Note that neither reduce() nor reduceRight() accepts an optional argument that
+specifies the this value on which the reduction function is to be invoked. The
+optional initial value argument takes its place.
+
+
+flat()
+flatMap()
+--------------------------------------------------------
+In ES2019, the flat() method creates and returns a new array that contains the same
+elements as the array it is called on, except that any elements that are themselves
+arrays are “flattened” into the returned array. For example:
+let a = [1, [2, [3, [4]]]];
+a.flat(1) // => [1, 2, [3, [4]]]
+a.flat(2) // => [1, 2, 3, [4]]
+a.flat(3) // => [1, 2, 3, 4]
+a.flat(4) // => [1, 2, 3, 4]
+
+calling a.flatMap(f) is the same as (but more efficient than) a.map(f).flat():
+
+
+concat()
+--------------------------------------------------------
+let a = [1,2,3];
+a.concat(4, 5) // => [1,2,3,4,5]
+a.concat([4,5],[6,7]) // => [1,2,3,4,5,6,7]; arrays are flattened
+a.concat(4, [5,[6,7]]) // => [1,2,3,4,5,[6,7]]; but not nested arrays
+a // => [1,2,3]; the original array is unmodified
+
+
+stack and queue 
+push()
+pop()
+shift()
+unshift()
+--------------------------------------------------------
+The push() and pop() methods allow you to work with arrays as if they were stacks.
+The push() method appends one or more new elements to the end of an array and
+returns the new length of the array. Unlike concat(), push() does not flatten array
+arguments. The pop() method does the reverse: it deletes the last element of an array,
+decrements the array length, and returns the value that it removed. Note that both
+methods modify the array in place. The combination of push() and pop() allows you
+to use a JavaScript array to implement a first-in, last-out stack
+
+The push() method does not flatten an array you pass to it, but if you want to push
+all of the elements from one array onto another array, you can use the spread opera‐tor to flatten it explicitly:
+a.push(...values);
+
+
+The unshift() and shift() methods behave much like push() and pop(), except
+that they insert and remove elements from the beginning of an array rather than from
+the end. unshift() adds an element or elements to the beginning of the array, shifts
+the existing array elements up to higher indexes to make room, and returns the new
+length of the array. shift() removes and returns the first element of the array, shift‐
+ing all subsequent elements down one place to occupy the newly vacant space at the
+start of the array. You could use unshift() and shift() to implement a stack, but it
+would be less efficient than using push() and pop() because the array elements need
+to be shifted up or down every time an element is added or removed at the start of the
+array. Instead, though, you can implement a queue data structure by using push() to
+add elements at the end of an array and shift() to remove them from the start of the
+array
+
+let a = []; // a == []
+a.unshift(1) // a == [1]
+a.unshift(2) // a == [2, 1]
+a = []; // a == []
+a.unshift(1,2) // a == [1, 2]
+
+
+
+Subarrays with slice() splice() fill() copyWithin()
+--------------------------------------------------------
+
+
+slice()
+--------------------------------------------------------
+The slice() method returns a slice, or subarray, of the specified array
+
+let a = [1,2,3,4,5];
+a.slice(0,3); // Returns [1,2,3]
+a.slice(3); // Returns [4,5]
+a.slice(1,-1); // Returns [2,3,4]
+a.slice(-3,-2); // Returns [3]
+
+splice()
+--------------------------------------------------------
+splice() is a general-purpose method for inserting or removing elements from an
+array. Unlike slice() and concat(), splice() modifies the array on which it is
+invoked. Note that splice() and slice() have very similar names but perform sub‐
+stantially different operations.
+
+splice() can delete elements from an array, insert new elements into an array, or
+perform both operations at the same time. Elements of the array that come after the
+insertion or deletion point have their indexes increased or decreased as necessary so
+that they remain contiguous with the rest of the array. The first argument to splice()
+specifies the array position at which the insertion and/or deletion is to begin. The sec‐
+ond argument specifies the number of elements that should be deleted from (spliced
+out of) the array. (Note that this is another difference between these two methods.
+The second argument to slice() is an end position. The second argument to
+splice() is a length.) If this second argument is omitted, all array elements from the
+start element to the end of the array are removed. splice() returns an array of the
+deleted elements, or an empty array if no elements were deleted
+
+let a = [1,2,3,4,5,6,7,8];
+a.splice(4) // => [5,6,7,8]; a is now [1,2,3,4]
+
+let a = [1,2,3,4,5];
+a.splice(2,0,"a","b") // => []; a is now [1,2,"a","b",3,4,5]
+a.splice(2,2,[1,2],3) // => ["a","b"]; a is now [1,2,[1,2],3,3,4,5]
+Note that, unlike concat(), splice() inserts arrays themselves, not the elements of
+those arrays.
+
+
+fill()
+--------------------------------------------------------
+let a = new Array(5); // Start with no elements and length 5
+a.fill(0) // => [0,0,0,0,0]; fill the array with zeros
+a.fill(9, 1) // => [0,9,9,9,9]; fill with 9 starting at index 1
+a.fill(8, 2, -1) // => [0,9,8,8,9]; fill with 8 at indexes 2, 3
+
+
+copyWithin()
+--------------------------------------------------------
+copyWithin() copies a slice of an array to a new position within the array. It modifies
+the array in place and returns the modified array, but it will not change the length of
+the array. The first argument specifies the destination index to which the first element
+will be copied. The second argument specifies the index of the first element to be
+copied. If this second argument is omitted, 0 is used. The third argument specifies the
+end of the slice of elements to be copied. If omitted, the length of the array is used.
+Elements from the start index up to, but not including, the end index will be copied.
+You can specify indexes relative to the end of the array by passing negative numbers,
+just as you can for slice()
+
+let a = [1,2,3,4,5];
+a.copyWithin(1) // => [1,1,2,3,4]: copy array elements up one
+a.copyWithin(2, 3, 5) // => [1,1,3,4,4]: copy last 2 elements to index 2
+a.copyWithin(0, -2) // => [4,4,3,4,4]: negative offsets work, too
+
+copyWithin() is intended as a high-performance method that is particularly useful
+with typed arrays (see §11.2). It is modeled after the memmove() function from the C
+standard library. Note that the copy will work correctly even if there is overlap
+between the source and destination regions.
+
+
+Array Searching and Sorting methods
+
+indexOf(), lastIndexOf()
+--------------------------------------------------------
+
+indexOf() will not detect the NaN value in an array, but includes() will:
+
+
+includes()
+--------------------------------------------------------
+let a = [1,true,3,NaN];
+a.includes(true) // => true
+a.includes(2) // => false
+a.includes(NaN) // => true
+a.indexOf(NaN) // => -1; indexOf can't find NaN
+
+
+sort()
+--------------------------------------------------------
+sort() sorts the elements of an array in place and returns the sorted array. When
+sort() is called with no arguments, it sorts the array elements in alphabetical order
+(temporarily converting them to strings to perform the comparison, if necessary):
+let a = ["banana", "cherry", "apple"];
+a.sort(); // a == ["apple", "banana", "cherry"]
+
+To sort an array into some order other than alphabetical, you must pass a comparison
+function as an argument to sort(). This function decides which of its two arguments
+should appear first in the sorted array. If the first argument should appear before the
+second, the comparison function should return a number less than zero. If the first
+argument should appear after the second in the sorted array, the function should
+return a number greater than zero. And if the two values are equivalent (i.e., if their
+order is irrelevant), the comparison function should return 0.
+
+
+reverse()
+--------------------------------------------------------
+The reverse() method reverses the order of the elements of an array and returns the
+reversed array. It does this in place; in other words, it doesn’t create a new array with
+the elements rearranged but instead rearranges them in the already existing array:
+let a = [1,2,3];
+a.reverse(); // a == [3,2,1]
+
+
+Array to String Conversions
+
+
+join()
+---------------------------------------------------------
+The join() method converts all the elements of an array to strings and concatenates
+them, returning the resulting string. You can specify an optional string that separates
+the elements in the resulting string. If no separator string is specified, a comma is
+used:
+let a = [1, 2, 3];
+a.join() // => "1,2,3"
+
+a.join(" ") // => "1 2 3"
+a.join("") // => "123"
+let b = new Array(10); // An array of length 10 with no elements
+b.join("-") // => "---------": a string of 9 hyphens
+
+Arrays, like all JavaScript objects, have a toString() method. For an array, this
+method works just like the join() method with no arguments:
+[1,2,3].toString() // => "1,2,3"
+["a", "b", "c"].toString() // => "a,b,c"
+[1, [2,"c"]].toString() // => "1,2,c"
+
+
+
+
+
+//=======================================================
+functions
+In JavaScript, functions are objects, and they can be manipulated by programs. Java‐
+Script can assign functions to variables and pass them to other functions, for exam‐
+ple. Since functions are objects, you can set properties on them and even invoke
+methods on them.
+
+JavaScript function definitions can be nested within other functions, and they have
+access to any variables that are in scope where they are defined. This means that Java‐
+Script functions are closures, and it enables important and powerful programming
+techniques.
+
+ In the strict mode of ES6, however, function declarations are allowed
+within blocks. A function defined within a block only exists within that block, how‐
+ever, and is not visible outside the block
+
+ Function Expressions
+Function expressions look a lot like function declarations, but they appear within the
+context of a larger expression or statement, and the name is optional. Here are some
+example function expressions:
+// This function expression defines a function that squares its argument.
+// Note that we assign it to a variable
+const square = function(x) { return x*x; };
+// Function expressions can include names, which is useful for recursion.
+const f = function fact(x) { if (x <= 1) return 1; else return x*fact(x-1); };
+// Function expressions can also be used as arguments to other functions:
+[3,2,1].sort(function(a,b) { return a-b; });
+// Function expressions are sometimes defined and immediately invoked:
+let tensquared = (function(x) {return x*x;}(10));
+
+Arrow functions differ from functions defined in other ways in one critical way: they
+inherit the value of the this keyword from the environment in which they are
+defined rather than defining their own invocation context as functions defined in
+other ways do. This is an important and very useful feature of arrow functions, and
+we’ll return to it again later in this chapter. Arrow functions also differ from other
+functions in that they do not have a prototype property, which means that they can‐
+not be used as constructor functions for new classes (see §9.2).
+
+let o = { // An object o.
+ m: function() { // Method m of the object.
+ let self = this; // Save the "this" value in a variable.
+ this === o // => true: "this" is the object o.
+ f(); // Now call the helper function f().
+ function f() { // A nested function f
+ this === o // => false: "this" is global or undefined
+ self === o // => true: self is the outer "this" value.
+ }
+ }
+};
+o.m(); // Invoke the method m on the object o.
+Inside the nested function f(), the this keyword is not equal to the object o. This is
+widely considered to be a flaw in the JavaScript language, and it is important to be
+aware of it. The code above demonstrates one common workaround. Within the
+method m, we assign the this value to a variable self, and within the nested function
+f, we can use self instead of this to refer to the containing object.
+In ES6 and later, another workaround to this issue is to convert the nested function f
+into an arrow function, which will properly inherit the this value:
+const f = () => {
+ this === o // true, since arrow functions inherit this
+};
+
+const f = (function() {
+ this === o // true, since we bound this function to the outer this
+}).bind(this);
+We’ll talk more about b
+
+Functions like the previous example that can accept any number of arguments are
+called variadic functions, variable arity functions, or vararg functions. This book uses
+the most colloquial term, varargs, which dates to the early days of the C programming
+language.
+
+Destructuring Function Arguments into Parameters
+function vectorAdd(v1, v2) {
+ return [v1[0] + v2[0], v1[1] + v2[1]];
+}
+vectorAdd([1,2], [3,4]) // => [4,6]
+
+The code would be easier to understand if we destructured the two vector arguments
+into more clearly named parameters:
+function vectorAdd([x1,y1], [x2,y2]) { // Unpack 2 arguments into 4 parameters
+ return [x1 + x2, y1 + y2];
+}
+vectorAdd([1,2], [3,4]) // => [4,6]
+
+function vectorMultiply({x, y}, scalar) {
+ return { x: x*scalar, y: y*scalar };
+}
+vectorMultiply({x: 1, y: 2}, 2) // => {x: 2, y: 4}
+
+Defning Your Own Function Properties
+Functions are not primitive values in JavaScript, but a specialized kind of object,
+which means that functions can have properties. When a function needs a “static”
+variable whose value persists across invocations, it is often convenient to use a prop‐
+erty of the function itself
+
+f.call(o, 1, 2);
+f.apply(o, [1,2]);
+
+let biggest = Math.max.apply(Math, arrayOfNumbers);
+
+Higher-Order Functions
+A higher-order function is a function that operates on functions, taking one or more
+functions as arguments and returning a new function.
+
+old class in JavaScriptImportantly, note that neither of the two range examples uses arrow functions when
+defining constructors or methods. Recall from §8.1.3 that functions defined in this
+way do not have a prototype property and so cannot be used as constructors. Also,
+arrow functions inherit the this keyword from the context in which they are defined
+rather than setting it based on the object through which they are invoked, and this
+makes them useless for methods because the defining characteristic of methods is
+that they use this to refer to the instance on which they were invoked.
+
+All code within the body of a class declaration is implicitly in strict mode
+(§5.6.3), even if no "use strict" directive appears. This means, for example,
+that you can’t use octal integer literals or the with statement within class bodies
+and that you are more likely to get syntax errors if you forget to declare a variable
+before using it.
+• Unlike function declarations, class declarations are not “hoisted.” Recall from
+§8.1.1 that function definitions behave as if they had been moved to the top of
+the enclosing file or enclosing function, meaning that you can invoke a function
+in code that comes before the actual definition of the function. Although class
+declarations are like function declarations in some ways, they do not share this
+hoisting behavior: you cannot instantiate a class before you declare it.
+
+Public, Private, and Static Fields
+In the discussion here of classes defined with the class keyword, we have only
+described the definition of methods within the class body. The ES6 standard only
+allows the creation of methods (including getters, setters, and generators) and static
+methods; it does not include syntax for defining fields. If you want to define a field
+(which is just an object-oriented synonym for “property”) on a class instance, you
+must do that in the constructor function or in one of the methods. And if you want to
+define a static field for a class, you must do that outside the class body, after the class
+has been defined. Example 9-4 includes examples of both kinds of fields
+
+
+The Set Class
+A set is a collection of values, like an array is. Unlike arrays, however, sets are not
+ordered or indexed, and they do not allow duplicates: a value is either a member of a
+set or it is not a member; it is not possible to ask how many times a value appears in a
+set.
+
+The Map Class
+A Map object represents a set of values known as keys, where each key has another
+value associated with (or “mapped to”) it. In a sense, a map is like an array, but
+instead of using a set of sequential integers as the keys, maps allow us to use arbitrary
+values as “indexes.” Like arrays, maps are fast: looking up the value associated with a
+key will be fast (though not as fast as indexing an array) no matter how large the
+map is.
+
+Typed Arrays and Binary Data
+Regular JavaScript arrays can have elements of any type and can grow or shrink
+dynamically. JavaScript implementations perform lots of optimizations so that typical
+uses of JavaScript arrays are very fast. Nevertheless, they are still quite different from
+the array types of lower-level languages like C and Java. Typed arrays, which are new
+in ES6,3
+ are much closer to the low-level arrays of those languages. Typed arrays are
+not technically arrays (Array.isArray() returns false for them), but they imple‐
+ment all of the array methods described in §7.8 plus a few more of their own. They
+differ from regular arrays in some very important ways, however:
+• The elements of a typed array are all numbers. Unlike regular JavaScript num‐
+bers, however, typed arrays allow you to specify the type (signed and unsigned
+integers and IEEE-754 floating point) and size (8 bits to 64 bits) of the numbers
+to be stored in the array.
+• You must specify the length of a typed array when you create it, and that length
+can never change.
+• The elements of a typed array are always initialized to 0 when the array is created.
+
+Typed Array Types
+
+Constructor Numeric type
+
+Int8Array() signed bytes
+Uint8Array() unsigned bytes
+Uint8ClampedArray() unsigned bytes without rollover
+Int16Array() signed 16-bit short integers
+Uint16Array() unsigned 16-bit short integers
+Int32Array() signed 32-bit integers
+Uint32Array() unsigned 32-bit integers
+BigInt64Array() signed 64-bit BigInt values (ES2020)
+BigUint64Array() unsigned 64-bit BigInt values (ES2020)
+Float32Array() 32-bit oating-point value
+Float64Array() 64-bit oating-point value: a regular JavaScript number
+
+Each of the typed array
+constructors has static from() and of() factory methods that work like
+Array.from() and Array.of():
+let white = Uint8ClampedArray.of(255, 255, 255, 0); // RGBA opaque white
+
+Remember that typed arrays have fixed lengths, so the length property is read-only,
+and methods that change the length of the array (such as push(), pop(), unshift(),
+shift(), and splice()) are not implemented for typed arrays. Methods that alter the
+contents of an array without changing the length (such as sort(), reverse(), and
+fill()) are implemented. Methods like map() and slice() that return new arrays
+return a typed array of the same type as the one they are called on
+
+typed aray's subarray() does not copy any memory; it just returns a new view of the
+same underlying values:
+
+
+Pattern Matching with Regular Expressions
+A regular expression is an object that describes a textual pattern
+
+Literal characters
+All alphabetic characters and digits match themselves literally in regular expressions.
+
+Alphanumeric
+character
+Itself
+\0 The NUL character (\u0000)
+\t Tab (\u0009)
+\n Newline (\u000A)
+\v Vertical tab (\u000B)
+\f Form feed (\u000C)
+\r Carriage return (\u000D)
+\xnn The Latin character specied by the hexadecimal number nn; for example, \x0A is the same as \n.
+\uxxxx The Unicode character specied by the hexadecimal number xxxx; for example, \u0009 is the same as
+\t.
+\u{n} The Unicode character specied by the codepoint n, where n is one to six hexadecimal digits between
+0 and 10FFFF. Note that this syntax is only supported in regular expressions that use the u ag.
+\cX The control character ^X; for example, \cJ is equivalent to the newline character \n.
+
+A number of punctuation characters have special meanings in regular expressions.
+They are:
+^ $ . * + ? = ! : | \ / ( ) [ ] { }
+
+Character classes
+Individual literal characters can be combined into character classes by placing them
+within square brackets.
+
+For example, \s matches the space character, the tab character, and
+any other Unicode whitespace character; \S matches any character that is not Uni‐
+code whitespace
+
+[...] Any one character between the brackets.
+[^...] Any one character not between the brackets.
+. Any character except newline or another Unicode line terminator. Or, if the RegExp uses the s ag, then a period
+matches any character, including line terminators.
+\w Any ASCII word character. Equivalent to [a-zA-Z0-9_].
+\W Any character that is not an ASCII word character. Equivalent to [^a-zA-Z0-9_].
+\s Any Unicode whitespace character.
+\S Any character that is not Unicode whitespace.
+\d Any ASCII digit. Equivalent to [0-9].
+\D Any character other than an ASCII digit. Equivalent to [^0-9].
+[\b] A literal backspace (special case)
+
+repeatition
+{n,m} Match the previous item at least n times but no more than m times.
+{n,} Match the previous item n or more times.
+{n} Match exactly n occurrences of the previous item.
+? Match zero or one occurrences of the previous item. That is, the previous item is optional. Equivalent to {0,1}.
++ Match one or more occurrences of the previous item. Equivalent to {1,}.
+* Match zero or more occurrences of the previous item. Equivalent to {0,}
+
+alternating, grouping and refrence
+| Alternation: match either the subexpression to the left or the subexpression to the right.
+(...) Grouping: group items into a single unit that can be used with *, +, ?, |, and so on. Also remember the
+characters that match this group for use with later references.
+(?:...) Grouping only: group items into a single unit, but do not remember the characters that match this group.
+\n Match the same characters that were matched when group number n was rst matched. Groups are
+subexpressions within (possibly nested) parentheses. Group numbers are assigned by counting left parentheses
+from left to right. Groups formed with (?: are not numbered.
+
+
+Strings support four methods that use regular expressions. 
+
+search()
+This method takes a regular expression argument and returns either the character
+position of the start of the first matching substring or −1 if there is no match:
+"JavaScript".search(/script/ui) // => 4
+"Python".search(/script/ui) // => -1
+
+ search() does not support global searches; it
+ignores the g flag of its regular expression argument.
+
+replace()
+The replace() method performs a search-and-replace operation. It takes a regular
+expression as its first argument and a replacement string as its second argument. It
+searches the string on which it is called for matches with the specified pattern. If the
+regular expression has the g flag set, the replace() method replaces all matches in
+the string with the replacement string; otherwise, it replaces only the first match it
+finds. If the first argument to replace() is a string rather than a regular expression,
+the method searches for that string literally rather than converting it to a regular
+expression with the RegExp() constructor, as search() does
+
+match()
+The match() method is the most general of the String regular expression methods. It
+takes a regular expression as its only argument (or converts its argument to a regular
+expression by passing it to the RegExp() constructor) and returns an array that con‐
+tains the results of the match, or null if no match is found. If the regular expression
+has the g flag set, the method returns an array of all matches that appear in the string.
+For example:
+"7 plus 8 equals 15".match(/\d+/g) // => ["7", "8", "15"]
+
+matchAll()
+The matchAll() method is defined in ES2020, and as of early 2020 is implemented by
+modern web browsers and Node. matchAll() expects a RegExp with the g flag set.
+
+split()
+
+RegExp()
+with RegExp constructor you should escape \
+let zipcode = new RegExp("\\d{5}", "g");
+
+
+
+date time
+Note that the methods for querying the day-of-month are getDate() and getUTC
+Date(). The more natural-sounding functions getDay() and getUTCDay() return the
+day-of-week (0 for Sunday through 6 for Saturday). The day-of-week is read-only, so
+there is not a corresponding setDay() method.
+
+
+
+//==========================================
+15.12 Storage
+
+Web Storage
+    The Web Storage API consists of the localStorage and sessionStorage objects,
+which are essentially persistent objects that map string keys to string values. Web
+Storage is very easy to use and is suitable for storing large (but not huge)
+amounts of data.
+
+Cookies
+    Cookies are an old client-side storage mechanism that was designed for use by
+server-side scripts. An awkward JavaScript API makes cookies scriptable on the
+client side, but they’re hard to use and suitable only for storing small amounts of
+textual data. Also, any data stored as cookies is always transmitted to the server
+with every HTTP request, even if the data is only of interest to the client.
+
+IndexedDB
+    IndexedDB is an asynchronous API to an object database that supports indexing.
+
+localStorage is permanent
+sessionStorage is temporary until tab is closed
+
+when localStorge calls a method it dispatches storage event to windows
+that are using localStorage
+
+
