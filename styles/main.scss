@@ -1,0 +1,12 @@
+.recipes {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1em;
+
+	> section {
+		padding: 1em;
+		background-color: aliceblue;
+		border: 1px solid gray;
+		border-radius: 10px;
+	}
+}
